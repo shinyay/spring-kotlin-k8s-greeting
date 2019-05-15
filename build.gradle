@@ -69,6 +69,9 @@ jib {
     }
     container {
         jvmFlags = ['-Xms512m', '-Xms1g', '-Xmx1g', '-Xss10m', '-XX:MaxMetaspaceSize=1g']
+        jvmFlags = ['-Djava.security.egd=file:/dev/./urandom']
+        jvmFlags = ['-Duser.timezone=JST']
+        jvmFlags = ['-Xdebug']
         ports = ['8080']
         useCurrentTimestamp = true
     }
