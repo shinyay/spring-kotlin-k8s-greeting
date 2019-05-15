@@ -54,3 +54,17 @@ tasks.withType(KotlinCompile) {
         jvmTarget = '1.8'
     }
 }
+
+jib {
+    from {
+        image = 'shinyay/adoptopenjdk11-minimum'
+    }
+    to {
+        image = 'gcr.io/pa-syanagihara/hello-app'
+//        credHelper = 'gcr'
+        auth {
+            username = 'oauth2accesstoken'
+            password = 'gcloud auth print-access-token'.execute().text.trim()
+        }
+    }
+}
