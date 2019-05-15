@@ -69,6 +69,7 @@ jib {
     }
     container {
         jvmFlags = ['-Xms512m', '-Xms1g', '-Xmx1g', '-Xss10m', '-XX:MaxMetaspaceSize=1g']
+        ports = ['8080']
         useCurrentTimestamp = true
     }
 }
