@@ -67,4 +67,8 @@ jib {
             password = 'gcloud auth print-access-token'.execute().text.trim()
         }
     }
+    container {
+        jvmFlags = ['-Xms512m', '-Xms1g', '-Xmx1g', '-Xss10m', '-XX:MaxMetaspaceSize=1g']
+        useCurrentTimestamp = true
+    }
 }
