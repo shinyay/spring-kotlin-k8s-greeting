@@ -57,7 +57,7 @@ tasks.withType(KotlinCompile) {
 
 jib {
     from {
-        image = 'shinyay/adoptopenjdk11-minimum'
+        image = 'shinyay/adoptopenjdk11-minimum:'
     }
     to {
         image = 'gcr.io/pa-syanagihara/hello-app'
@@ -67,6 +67,7 @@ jib {
             password = 'gcloud auth print-access-token'.execute().text.trim()
         }
     }
+    allowInsecureRegistries = true
     container {
         jvmFlags = ['-Xms512m', '-Xms1g', '-Xmx1g', '-Xss10m', '-XX:MaxMetaspaceSize=1g']
         jvmFlags = ['-Djava.security.egd=file:/dev/./urandom']
